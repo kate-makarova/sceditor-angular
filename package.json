@@ -6,7 +6,7 @@
     "@angular/core": "*"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "*"
   },
   "sideEffects": false,
   "module": "fesm2022/sceditor-angular.mjs",

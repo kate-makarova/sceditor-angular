@@ -46,11 +46,6 @@ class ScriptService {
 class SceditorComponent {
     id = '';
     format = 'xhtml';
-<<<<<<< HEAD
-    scripts = [];
-    scriptService;
-    constructor() {
-=======
     toolbar;
     scripts = [];
     scriptService;
@@ -64,7 +59,6 @@ class SceditorComponent {
             'horizontalrule|' +
             'image,link,unlink|' +
             'emoticon';
->>>>>>> c63596f (check)
         let format_script = 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/formats/xhtml.min.js';
         if (this.format == 'bbcode') {
             format_script = 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/formats/bbcode.min.js';
@@ -81,21 +75,14 @@ class SceditorComponent {
             // @ts-ignore
             sceditor.create(textarea, {
                 format: this.format,
-<<<<<<< HEAD
-=======
                 toolbar: this.toolbar,
->>>>>>> c63596f (check)
                 style: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css',
                 height: 300,
             });
         });
     }
     static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.3", ngImport: i0, type: SceditorComponent, deps: [], target: i0.ɵɵFactoryTarget.Component });
-<<<<<<< HEAD
-    static ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "19.1.3", type: SceditorComponent, isStandalone: true, selector: "app-sceditor", inputs: { id: "id", format: "format" }, ngImport: i0, template: "<textarea [id]=\"id\"></textarea>", styles: ["@import\"https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/default.min.css\";@import\"https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css\";\n"], dependencies: [{ kind: "ngmodule", type: ReactiveFormsModule }] });
-=======
     static ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "19.1.3", type: SceditorComponent, isStandalone: true, selector: "app-sceditor", inputs: { id: "id", format: "format", toolbar: "toolbar" }, ngImport: i0, template: "<textarea [id]=\"id\"></textarea>", styles: ["@import\"https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/default.min.css\";@import\"https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css\";\n"], dependencies: [{ kind: "ngmodule", type: ReactiveFormsModule }] });
->>>>>>> c63596f (check)
 }
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.3", ngImport: i0, type: SceditorComponent, decorators: [{
             type: Component,
@@ -108,12 +95,9 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.3", ngImpor
             }], format: [{
                 type: Input,
                 args: ['format']
-<<<<<<< HEAD
-=======
             }], toolbar: [{
                 type: Input,
                 args: ['toolbar']
->>>>>>> c63596f (check)
             }] } });
 
 class SCEditorModule {

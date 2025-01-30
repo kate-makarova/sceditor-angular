@@ -88,10 +88,10 @@ class SceditorComponent {
     ngOnChanges(changes) {
         if (changes['content']) {
             this.content.subscribe((content) => {
-                console.log(content);
                 if (content == null) {
                     return;
                 }
+                const textarea = document.getElementById(this.id);
                 // @ts-ignore
                 return sceditor.instance(textarea).val(content);
             });

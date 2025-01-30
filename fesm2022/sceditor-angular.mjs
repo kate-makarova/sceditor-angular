@@ -76,7 +76,7 @@ class SceditorComponent {
             sceditor.create(textarea, {
                 format: this.format,
                 toolbar: this.toolbar,
-                style: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css',
+                //   style: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css',
                 height: this.height,
                 emoticonsRoot: 'https://www.sceditor.com/',
             });

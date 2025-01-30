@@ -83,6 +83,10 @@ class SceditorComponent {
                 style: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css',
                 height: this.height
             });
+        });
+    }
+    ngOnChanges(changes) {
+        if (changes['content']) {
             this.content.subscribe((content) => {
                 console.log(content);
                 if (content == null) {
@@ -91,10 +95,10 @@ class SceditorComponent {
                 // @ts-ignore
                 return sceditor.instance(textarea).val(content);
             });
-        });
+        }
     }
     static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.3", ngImport: i0, type: SceditorComponent, deps: [], target: i0.ɵɵFactoryTarget.Component });
-    static ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "19.1.3", type: SceditorComponent, isStandalone: true, selector: "app-sceditor", inputs: { id: "id", format: "format", toolbar: "toolbar", height: "height", content: "content" }, ngImport: i0, template: "<textarea [id]=\"id\"></textarea>", styles: ["@import\"https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/default.min.css\";@import\"https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css\";\n"], dependencies: [{ kind: "ngmodule", type: ReactiveFormsModule }] });
+    static ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "19.1.3", type: SceditorComponent, isStandalone: true, selector: "app-sceditor", inputs: { id: "id", format: "format", toolbar: "toolbar", height: "height", content: "content" }, usesOnChanges: true, ngImport: i0, template: "<textarea [id]=\"id\"></textarea>", styles: ["@import\"https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/default.min.css\";@import\"https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css\";\n"], dependencies: [{ kind: "ngmodule", type: ReactiveFormsModule }] });
 }
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.3", ngImport: i0, type: SceditorComponent, decorators: [{
             type: Component,

@@ -84,6 +84,7 @@ class SceditorComponent {
                 height: this.height
             });
             this.content.subscribe((content) => {
+                console.log(content);
                 if (content == null) {
                     return;
                 }

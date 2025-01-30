@@ -82,7 +82,7 @@ class SceditorComponent {
                 toolbar: this.toolbar,
                 style: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css',
                 height: this.height,
-                emoticonsRoot: 'https://www.sceditor.com',
+                emoticonsRoot: 'https://www.sceditor.com/',
             });
         });
     }
@@ -93,8 +93,9 @@ class SceditorComponent {
                     return;
                 }
                 const textarea = document.getElementById(this.id);
+                const valueWithLineBreaks = content.replace(/\n/g, '[br]');
                 // @ts-ignore
-                return sceditor.instance(textarea).val(content, false);
+                return sceditor.instance(textarea).val(valueWithLineBreaks);
             });
         }
     }

@@ -47,22 +47,20 @@ class ScriptService {
 class SceditorComponent {
     id = '';
     format = 'xhtml';
-    toolbar;
-    height;
+    toolbar = 'bold,italic,underline,strike,subscript,superscript|' +
+        'left,center,right,justify|' +
+        'font,size,color|' +
+        'removeformat|' +
+        'cut,copy,paste|' +
+        'pastetext,bulletlist,orderedlist,table,code,quote|' +
+        'horizontalrule|' +
+        'image,link,unlink|' +
+        'emoticon';
+    height = 100;
     content = of(null);
     scripts = [];
-    scriptService;
-    constructor() {
-        this.height = 300;
-        this.toolbar = 'bold,italic,underline,strike,subscript,superscript|' +
-            'left,center,right,justify|' +
-            'font,size,color|' +
-            'removeformat|' +
-            'cut,copy,paste|' +
-            'pastetext,bulletlist,orderedlist,table,code,quote|' +
-            'horizontalrule|' +
-            'image,link,unlink|' +
-            'emoticon';
+    scriptService = null;
+    ngOnInit() {
         let format_script = 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/formats/xhtml.min.js';
         if (this.format == 'bbcode') {
             format_script = 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/formats/bbcode.min.js';
@@ -72,8 +70,6 @@ class SceditorComponent {
             { name: 'format', src: format_script }
         ];
         this.scriptService = new ScriptService(this.scripts);
-    }
-    ngOnInit() {
         this.scriptService.load('main', 'format').then(() => {
             const textarea = document.getElementById(this.id);
             // @ts-ignore
@@ -107,7 +103,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.3", ngImpor
             args: [{ selector: 'app-sceditor', imports: [
                         ReactiveFormsModule
                     ], template: "<textarea [id]=\"id\"></textarea>", styles: ["@import\"https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/default.min.css\";@import\"https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css\";\n"] }]
-        }], ctorParameters: () => [], propDecorators: { id: [{
+        }], propDecorators: { id: [{
                 type: Input,
                 args: ['id']
             }], format: [{

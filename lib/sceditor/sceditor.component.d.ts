@@ -9,7 +9,6 @@ export declare class SceditorComponent implements OnInit, OnChanges {
     content: Observable<string | null>;
     private scripts;
     private scriptService;
-    constructor();
     ngOnInit(): void;
     ngOnChanges(changes: SimpleChanges): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<SceditorComponent, never>;

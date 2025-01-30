@@ -1,11 +1,12 @@
 import { OnInit } from '@angular/core';
+import { Observable } from "rxjs";
 import * as i0 from "@angular/core";
 export declare class SceditorComponent implements OnInit {
     id: string;
     format: string;
     toolbar: string;
     height: string | number;
-    content: string | null;
+    content: Observable<string | null>;
     private scripts;
     private scriptService;
     constructor();

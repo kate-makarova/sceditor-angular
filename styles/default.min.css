@@ -1,5 +1,6 @@
 /*! SCEditor | (C) 2011-2016, Sam Clarke | sceditor.com/license */
 .sceditor-button div, div.sceditor-grip {
+    background-image: url(famfamfam.png);
     background-repeat: no-repeat;
     height: 16px;
     width: 16px
@@ -193,6 +194,12 @@ div.sceditor-grip {
     line-height: 1;
     position: relative
 }
+
+.dark .sceditor-container {
+    background: #000;
+    border: 1px solid #5e5e5e;
+}
+
 
 .sceditor-container *, .sceditor-container :after, .sceditor-container :before {
     -webkit-box-sizing: content-box;
@@ -444,7 +451,7 @@ div.sceditor-emoticons, div.sceditor-more-emoticons {
 
 div.sceditor-toolbar {
     -ms-flex-negative: 0;
-    background: #f7f7f7;
+    background: #2d2d2d;
     background-clip: padding-box;
     border-bottom: 1px solid silver;
     border-radius: 3px 3px 0 0;
@@ -465,6 +472,11 @@ div.sceditor-group {
     display: inline-block;
     margin: 1px 5px 1px 0;
     padding: 1px
+}
+
+.dark div.sceditor-group {
+    background: #4d4d4d;
+    border-bottom: 1px solid #000;
 }
 
 .sceditor-button, div.sceditor-group {
@@ -569,87 +581,4 @@ div.sceditor-group {
 .rtl div.sceditor-grip {
     left: 0;
     right: auto
-}
-
-/*! SCEditor | (C) 2011-2013, Sam Clarke | sceditor.com/license */
-body, code:before, html, p, table {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    line-height: 1.25;
-    margin: 0;
-    overflow: visible;
-    padding: 0
-}
-
-html {
-    height: 100%
-}
-
-.ios {
-    -webkit-overflow-scrolling: touch;
-    overflow: auto
-}
-
-.ios body {
-    overflow: auto;
-    position: relative
-}
-
-body {
-    word-wrap: break-word;
-    min-height: 100%
-}
-
-body.placeholder:before {
-    content: attr(placeholder);
-    font-style: italic
-}
-
-ol, ul {
-    margin-bottom: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-top: 0
-}
-
-table, td {
-    border: 1px dotted #000;
-    empty-cells: show
-}
-
-table td {
-    min-width: 5px
-}
-
-code {
-    direction: ltr;
-    display: block;
-    margin: .25em 0;
-    padding: 1em;
-    text-align: left;
-    white-space: pre
-}
-
-blockquote {
-    border-left: .3em solid #f4e59f;
-    margin: .25em 0;
-    padding: .5em .5em .5em .75em
-}
-
-blockquote cite {
-    border-bottom: 1px solid #f4e59f;
-    display: block;
-    font-size: 1em;
-    font-weight: 700;
-    margin: 0 -.5em .25em -.75em;
-    padding: 0 .5em .15em .75em
-}
-
-h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-    padding: 0
-}
-
-div, p {
-    min-height: 1.25em
 }

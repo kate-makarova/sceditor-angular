@@ -46,6 +46,7 @@ class ScriptService {
 
 class SceditorComponent {
     id = '';
+    mode = 'default';
     format = 'xhtml';
     toolbar = 'bold,italic,underline,strike,subscript,superscript|' +
         'left,center,right,justify|' +
@@ -66,10 +67,14 @@ class SceditorComponent {
             format_script = 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/formats/bbcode.min.js';
         }
         this.scripts = [
-            { name: 'main', src: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/sceditor.min.js' },
+            { name: 'main', src: 'https://cdn.jsdelivr.net/combine/npm/sceditor@latest/minified/sceditor.min.js,npm/sceditor@latest/minified/icons/monocons.min.js' },
             { name: 'format', src: format_script }
         ];
         this.scriptService = new ScriptService(this.scripts);
+        let style = '/content-default.min.css';
+        if (this.mode == 'dark') {
+            style = '/content-dark.min.css';
+        }
         this.scriptService.load('main', 'format').then(() => {
             const textarea = document.getElementById(this.id);
             // @ts-ignore
@@ -77,7 +82,7 @@ class SceditorComponent {
                 icons: 'monocons',
                 format: this.format,
                 toolbar: this.toolbar,
-                style: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css',
+                style: style,
                 height: this.height,
                 emoticonsRoot: 'https://www.sceditor.com/',
             });
@@ -97,7 +102,7 @@ class SceditorComponent {
         }
     }
     static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.3", ngImport: i0, type: SceditorComponent, deps: [], target: i0.ɵɵFactoryTarget.Component });
-    static ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "19.1.3", type: SceditorComponent, isStandalone: true, selector: "app-sceditor", inputs: { id: "id", format: "format", toolbar: "toolbar", height: "height", content: "content" }, usesOnChanges: true, ngImport: i0, template: "<textarea [id]=\"id\"></textarea>", styles: [""], dependencies: [{ kind: "ngmodule", type: ReactiveFormsModule }] });
+    static ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "19.1.3", type: SceditorComponent, isStandalone: true, selector: "app-sceditor", inputs: { id: "id", mode: "mode", format: "format", toolbar: "toolbar", height: "height", content: "content" }, usesOnChanges: true, ngImport: i0, template: "<textarea [id]=\"id\"></textarea>", styles: [""], dependencies: [{ kind: "ngmodule", type: ReactiveFormsModule }] });
 }
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.3", ngImport: i0, type: SceditorComponent, decorators: [{
             type: Component,
@@ -107,6 +112,9 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.3", ngImpor
         }], propDecorators: { id: [{
                 type: Input,
                 args: ['id']
+            }], mode: [{
+                type: Input,
+                args: ['mode']
             }], format: [{
                 type: Input,
                 args: ['format']

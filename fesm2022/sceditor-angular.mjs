@@ -74,6 +74,7 @@ class SceditorComponent {
             const textarea = document.getElementById(this.id);
             // @ts-ignore
             sceditor.create(textarea, {
+                icons: 'monocons',
                 format: this.format,
                 toolbar: this.toolbar,
                 style: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css',

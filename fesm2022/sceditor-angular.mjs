@@ -56,7 +56,8 @@ class SceditorComponent {
         'pastetext,bulletlist,orderedlist,table,code,quote|' +
         'horizontalrule|' +
         'image,link,unlink|' +
-        'emoticon';
+        'emoticon|' +
+        'source';
     height = 100;
     content = of(null);
     scripts = [];

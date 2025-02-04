@@ -136,6 +136,11 @@ class SCEditorModule {
         // @ts-ignore
         return sceditor.instance(textarea).val();
     }
+    static setValue(id, value) {
+        const textarea = document.getElementById(id);
+        // @ts-ignore
+        return sceditor.instance(textarea).val('');
+    }
     static setCSS(id, css) {
         const textarea = document.getElementById(id);
         // @ts-ignore

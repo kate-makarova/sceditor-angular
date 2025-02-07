@@ -96,9 +96,8 @@ class SceditorComponent {
                     return;
                 }
                 const textarea = document.getElementById(this.id);
-                //   const valueWithLineBreaks = content.replace(/\n/g, "\r\n");
                 // @ts-ignore
-                return sceditor.instance(textarea).val(valueWithLineBreaks);
+                sceditor.instance(textarea).val(content);
             });
         }
     }

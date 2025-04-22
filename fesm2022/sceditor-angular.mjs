@@ -1,8 +1,8 @@
 import * as i0 from '@angular/core';
 import { Injectable, Component, Input, NgModule } from '@angular/core';
+import { Subject, of } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { Subject, of } from 'rxjs';
 
 class ScriptService {
     scripts = {};
@@ -195,5 +195,5 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.3", ngImpor
  * Generated bundle index. Do not edit.
  */
 
-export { SCEditorModule, SceditorComponent, ScriptService };
+export { KeyupService, SCEditorModule, SceditorComponent, ScriptService };
 //# sourceMappingURL=sceditor-angular.mjs.map

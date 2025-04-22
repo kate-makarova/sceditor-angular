@@ -5,6 +5,7 @@ export declare class SCEditorModule {
     static getValue(id: string): string;
     static setValue(id: string, value: string): string;
     static setCSS(id: string, css: string): void;
+    static setOnKeyUp(id: string, callback: Function): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<SCEditorModule, never>;
     static ɵmod: i0.ɵɵNgModuleDeclaration<SCEditorModule, never, [typeof i1.CommonModule, typeof i2.SceditorComponent], [typeof i2.SceditorComponent]>;
     static ɵinj: i0.ɵɵInjectorDeclaration<SCEditorModule>;

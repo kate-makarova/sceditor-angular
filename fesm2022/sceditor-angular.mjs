@@ -145,6 +145,11 @@ class SCEditorModule {
         // @ts-ignore
         return sceditor.instance(textarea).css(css);
     }
+    static setOnKeyUp(id, callback) {
+        const textarea = document.getElementById(id);
+        // @ts-ignore
+        sceditor.instance(textarea).keyup(callback);
+    }
     static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.3", ngImport: i0, type: SCEditorModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
     static ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "19.1.3", ngImport: i0, type: SCEditorModule, imports: [CommonModule,
             SceditorComponent], exports: [SceditorComponent] });

@@ -59,6 +59,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.3", ngImpor
         }] });
 
 class SceditorComponent {
+    keyupService;
     id = '';
     mode = 'default';
     format = 'xhtml';
@@ -76,7 +77,9 @@ class SceditorComponent {
     content = of(null);
     scripts = [];
     scriptService = null;
-    keyupService = new KeyupService();
+    constructor(keyupService) {
+        this.keyupService = keyupService;
+    }
     onKeyUp(event) {
         const value = event.target.value;
         this.keyupService.emitKeyup(value);
@@ -120,7 +123,7 @@ class SceditorComponent {
             });
         }
     }
-    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.3", ngImport: i0, type: SceditorComponent, deps: [], target: i0.ɵɵFactoryTarget.Component });
+    static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.3", ngImport: i0, type: SceditorComponent, deps: [{ token: KeyupService }], target: i0.ɵɵFactoryTarget.Component });
     static ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "19.1.3", type: SceditorComponent, isStandalone: true, selector: "app-sceditor", inputs: { id: "id", mode: "mode", format: "format", toolbar: "toolbar", height: "height", content: "content" }, usesOnChanges: true, ngImport: i0, template: "<textarea [id]=\"id\" (keyup)=\"onKeyUp($event)\"></textarea>", styles: [""], dependencies: [{ kind: "ngmodule", type: ReactiveFormsModule }] });
 }
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.3", ngImport: i0, type: SceditorComponent, decorators: [{
@@ -128,7 +131,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.3", ngImpor
             args: [{ selector: 'app-sceditor', imports: [
                         ReactiveFormsModule
                     ], template: "<textarea [id]=\"id\" (keyup)=\"onKeyUp($event)\"></textarea>" }]
-        }], propDecorators: { id: [{
+        }], ctorParameters: () => [{ type: KeyupService }], propDecorators: { id: [{
                 type: Input,
                 args: ['id']
             }], mode: [{

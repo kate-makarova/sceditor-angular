@@ -1,9 +1,7 @@
 import { OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Observable } from "rxjs";
-import { KeyupService } from "../keyup.service";
 import * as i0 from "@angular/core";
 export declare class SceditorComponent implements OnInit, OnChanges {
-    private keyupService;
     id: string;
     mode: string;
     format: string;
@@ -12,8 +10,6 @@ export declare class SceditorComponent implements OnInit, OnChanges {
     content: Observable<string | null>;
     private scripts;
     private scriptService;
-    constructor(keyupService: KeyupService);
-    onKeyUp(event: KeyboardEvent): void;
     ngOnInit(): void;
     ngOnChanges(changes: SimpleChanges): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<SceditorComponent, never>;

@@ -1,5 +1,5 @@
 import * as i0 from '@angular/core';
-import { Component, Input, NgModule } from '@angular/core';
+import { EventEmitter, Component, Input, Output, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { of } from 'rxjs';
@@ -62,6 +62,7 @@ class SceditorComponent {
     content = of(null);
     scripts = [];
     scriptService = null;
+    emitter = new EventEmitter();
     ngOnInit() {
         let format_script = 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/formats/xhtml.min.js';
         if (this.format == 'bbcode') {
@@ -87,6 +88,7 @@ class SceditorComponent {
                 height: this.height,
                 emoticonsRoot: 'https://www.sceditor.com/',
             });
+            this.emitter.emit(true);
         });
     }
     ngOnChanges(changes) {
@@ -102,7 +104,7 @@ class SceditorComponent {
         }
     }
     static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.1.3", ngImport: i0, type: SceditorComponent, deps: [], target: i0.ɵɵFactoryTarget.Component });
-    static ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "19.1.3", type: SceditorComponent, isStandalone: true, selector: "app-sceditor", inputs: { id: "id", mode: "mode", format: "format", toolbar: "toolbar", height: "height", content: "content" }, usesOnChanges: true, ngImport: i0, template: "<textarea [id]=\"id\"></textarea>", styles: [""], dependencies: [{ kind: "ngmodule", type: ReactiveFormsModule }] });
+    static ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "19.1.3", type: SceditorComponent, isStandalone: true, selector: "app-sceditor", inputs: { id: "id", mode: "mode", format: "format", toolbar: "toolbar", height: "height", content: "content" }, outputs: { emitter: "sceditor_initialized" }, usesOnChanges: true, ngImport: i0, template: "<textarea [id]=\"id\"></textarea>", styles: [""], dependencies: [{ kind: "ngmodule", type: ReactiveFormsModule }] });
 }
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.3", ngImport: i0, type: SceditorComponent, decorators: [{
             type: Component,
@@ -127,6 +129,9 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.1.3", ngImpor
             }], content: [{
                 type: Input,
                 args: ['content']
+            }], emitter: [{
+                type: Output,
+                args: ['sceditor_initialized']
             }] } });
 
 class SCEditorModule {
